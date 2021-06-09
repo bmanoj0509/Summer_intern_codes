@@ -1,0 +1,42 @@
+import cv2
+import numpy as np
+
+img2 = np.zeros((880,320,3),np.uint8)
+img2[0:440, :] = (255,0,255)
+img2[441:880, :] = (255,255,0)
+buffer2[:, :, :] = img2[:, :, :]
+cv2.imshow('hi', img2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
+pic5 = cv2.imread("PROFILE_PIC3.jpg")
+print(pic5.shape)
+buffer1 = cv2.imread("PROFILE_PIC3.jpg")
+a5= pic5[144:584,663:983,:]
+b5= img2[0:440,0:320,:]
+buffer2[0:440, 0:320, :] = a5
+
+
+buffer1[144:584,663:983,:] = b5
+
+cv2.imshow('hi2', buffer2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+cv2.imshow('hi2', buffer1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+import cv2
+import numpy as np
+
+img3 = np.zeros((440,700,3),np.uint8)
+img3[0:220, :] = (255,0,255)
+img3[221:440, :] = (255,255,0)
+pic6 = cv2.imread("National-Flag-of-India-ili-59-img-2.jpg")
+combine = np.hstack( (img3,pic6))
+cv2.imshow('h3', combine)
+cv2.waitKey()
+cv2.destroyAllWindows()
