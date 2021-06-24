@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import os
+import smtplib
 
 
 face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -47,6 +48,12 @@ while True:
         if confidence > 80:
             cv2.putText(image, "Hey Manoj", (250, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 2)
             cv2.imshow('Face Recognition', image )
+            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s.starttls()
+            s.login("b.manoj05091994@gmail.com", "zbfzxBDBOX5@123456")
+            message = "Manoj's face is recognised"
+            s.sendmail("b.manoj05091994@gmail.com", "b.manoj05091994@gmail.com", message)
+            s.quit()
             os.system("aws ec2 run-instances --image-id ami-0e8e39877665a7c92 --count 1 --instance-type t2.micro --key-name commonkey_allinstances --security-group-ids sg-0bc17ea34c3c4506c --subnet-id subnet-031bf2c11032ae105")
             os.system("aws ec2 create-volume --size 5 --availability-zone ap-southeast-1b")
             break
