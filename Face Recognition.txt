@@ -50,7 +50,7 @@ while True:
             cv2.imshow('Face Recognition', image )
             s = smtplib.SMTP('smtp.gmail.com', 587)
             s.starttls()
-            s.login("b.manoj05091994@gmail.com", "zbfzxBDBOX5@123456")
+            s.login("b.manoj05091994@gmail.com", "")
             message = "Manoj's face is recognised"
             s.sendmail("b.manoj05091994@gmail.com", "b.manoj05091994@gmail.com", message)
             s.quit()
